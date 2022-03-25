@@ -30,19 +30,19 @@ class MainWindow(QWidget):
         #self.text.setFixedSize(10, 10)
 
         self.label2 = QLabel("Enter your API key:", self)
-        self.label2.move(10, 60)
+        self.label2.move(100, 60)
         self.text2 = QLineEdit(self)
-        self.text2.move(10, 100)
+        self.text2.move(100, 100)
 
         self.label3 = QLabel("Enter your IP:", self)
-        self.label3.move(10, 125)
+        self.label3.move(100, 150)
         self.text13 = QLineEdit(self)
-        self.text13.move(10, 150)
+        self.text13.move(100, 175)
 
         self.label2 = QLabel("Answer:", self)
-        self.label2.move(10, 50)
+        self.label2.move(100, 220)
         self.button = QPushButton("Send", self)
-        self.button.move(10, 100)
+        self.button.move(100, 250)
 
         self.button.clicked.connect(self.on_click)  #permet d'allez a la page après des coordonnées juste
         self.button.pressed.connect(self.on_click)  #permet d'avoir le message d'erreur si les coordonnées sont faussses
