@@ -59,9 +59,11 @@ class MainWindow(QWidget):
         else:
             res = self.__query(hostname,api_key,ip)
             if res:
-                self.label2.setText("Answer%s" % (res["Hello"]))
+                self.label2.setText("\n Longitude: %s \n Latitude: %s \n" % (res["Longitude"], res["Latitude"]))
                 self.label2.adjustSize()
                 self.show()
+                url1 = "https://www.openstreetmap.org/?mlat=%s&mlon=%s#map=12" % (res["Latitude"], res["Longitude"])
+                webbrowser.open_new_tab(url1)
 
     def __query(self, hostname):
         url = "http://%s" % (hostname)
