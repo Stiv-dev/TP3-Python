@@ -50,12 +50,14 @@ class MainWindow(QWidget):
         self.show() #permet d'afficher la fenetre
 
     def on_click(self):
-        hostname = self.text.text()
+        hostname = self.text1.text()
+        api_key = self.text2.text()
+        ip = self.text13()
 
         if hostname == "":
             QMessageBox.about(self, "Error", "Please fill the field")
         else:
-            res = self.__query(hostname)
+            res = self.__query(hostname,api_key,ip)
             if res:
                 self.label2.setText("Answer%s" % (res["Hello"]))
                 self.label2.adjustSize()
