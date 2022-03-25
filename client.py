@@ -1,3 +1,4 @@
+from re import S
 from PyQt5.QtWidgets import (
     QApplication,
     QWidget,
@@ -65,7 +66,7 @@ class MainWindow(QWidget):
                 url1 = "https://www.openstreetmap.org/?mlat=%s&mlon=%s#map=12" % (res["Latitude"], res["Longitude"])
                 webbrowser.open_new_tab(url1)
 
-    def __query(self, hostname):
+    def __query(self, hostname, ip, api_key):
         url = "http://%s/ip/%s?key=%s" % (hostname,ip, api_key)
         r = requests.get(url)
         if r.status_code == requests.codes.NOT_FOUND:
