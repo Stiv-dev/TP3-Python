@@ -11,7 +11,7 @@ from PyQt5.QtWidgets import (
 from PyQt5.Qt import QUrl, QDesktopServices
 import requests
 import sys
-
+import webbrowser
 
 class MainWindow(QWidget):
     def __init__(self):
@@ -19,7 +19,7 @@ class MainWindow(QWidget):
         self.initUI()
 
     def initUI(self):
-        self.setWindowTitle("Yolo")
+        self.setWindowTitle("Client")
         self.setFixedSize(500, 500) #modifie la taille du rectangle
 
         #Le haut de l'inteface et le positionnement ds l'espace
@@ -53,12 +53,12 @@ class MainWindow(QWidget):
     def on_click(self):
         hostname = self.text1.text()
         api_key = self.text2.text()
-        ip = self.text13()
+        ip = self.text13.text()
 
         if hostname == "":
             QMessageBox.about(self, "Error", "Please fill the field")
         else:
-            res = self.__query(hostname,api_key,ip)
+            res = self.__query(hostname,ip, api_key)
             if res:
                 self.label2.setText("\n Longitude: %s \n Latitude: %s \n" % (res["Longitude"], res["Latitude"]))
                 self.label2.adjustSize()
