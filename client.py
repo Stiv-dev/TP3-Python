@@ -66,7 +66,7 @@ class MainWindow(QWidget):
                 webbrowser.open_new_tab(url1)
 
     def __query(self, hostname):
-        url = "http://%s" % (hostname)
+        url = "http://%s/ip/%s?key=%s" % (hostname,ip, api_key)
         r = requests.get(url)
         if r.status_code == requests.codes.NOT_FOUND:
             QMessageBox.about(self, "Error", "IP not found")
