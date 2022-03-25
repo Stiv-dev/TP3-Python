@@ -18,20 +18,36 @@ class MainWindow(QWidget):
         self.initUI()
 
     def initUI(self):
-        self.setWindowTitle("Client")
-        self.setFixedSize(400, 400)
-        self.label1 = QLabel("Enter your host IP:", self)
-        self.text = QLineEdit(self)
-        self.text.move(10, 30)
-        self.label2 = QLabel("Answer:", self)
+        self.setWindowTitle("Yolo")
+        self.setFixedSize(500, 500) #modifie la taille du rectangle
+
+        #Le haut de l'inteface et le positionnement ds l'espace
+
+        self.label1 = QLabel("Enter your Hostname:", self)
+        self.label1.move(100, 1)
+        self.text1 = QLineEdit(self)
+        self.text1.move(100, 20)
+        #self.text.setFixedSize(10, 10)
+
+        self.label2 = QLabel("Enter your API key:", self)
         self.label2.move(10, 60)
+        self.text2 = QLineEdit(self)
+        self.text2.move(10, 100)
+
+        self.label3 = QLabel("Enter your IP:", self)
+        self.label3.move(10, 125)
+        self.text13 = QLineEdit(self)
+        self.text13.move(10, 150)
+
+        self.label2 = QLabel("Answer:", self)
+        self.label2.move(10, 50)
         self.button = QPushButton("Send", self)
-        self.button.move(10, 90)
+        self.button.move(10, 100)
 
-        self.button.clicked.connect(self.on_click)
-        self.button.pressed.connect(self.on_click)
+        self.button.clicked.connect(self.on_click)  #permet d'allez a la page après des coordonnées juste
+        self.button.pressed.connect(self.on_click)  #permet d'avoir le message d'erreur si les coordonnées sont faussses
 
-        self.show()
+        self.show() #permet d'afficher la fenetre
 
     def on_click(self):
         hostname = self.text.text()
